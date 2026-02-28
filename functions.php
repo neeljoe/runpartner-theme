@@ -1,4 +1,3 @@
-<?php 
 <?php
 function fictional_university_child_styles() {
     wp_enqueue_style(
