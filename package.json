@@ -1,0 +1,12 @@
+{
+	"name": "runpartner-theme",
+	"version": "1.0.0",
+	"description": "JS build pipeline for theme global scripts",
+	"scripts": {
+		"start": "wp-scripts start src/index.js",
+        "build": "wp-scripts build src/index.js"
+	},
+	"dependencies": {
+		"@wordpress/scripts": "^31.5.0"
+	}
+}
