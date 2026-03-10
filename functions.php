@@ -59,3 +59,4 @@ function fictional_university_editor_assets() {
 }
 
 add_action( 'enqueue_block_editor_assets', 'fictional_university_editor_assets' );
+
