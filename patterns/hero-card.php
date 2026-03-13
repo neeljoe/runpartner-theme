@@ -22,7 +22,7 @@
 
 <!-- wp:buttons {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|40"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 <div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button">Browse Marathons</a></div>
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="http://runpartner.local/marathons/">Browse Marathons</a></div>
 <!-- /wp:button -->
 
 <!-- wp:button -->
