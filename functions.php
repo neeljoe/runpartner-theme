@@ -59,4 +59,13 @@ function fictional_university_editor_assets() {
 }
 
 add_action( 'enqueue_block_editor_assets', 'fictional_university_editor_assets' );
+function runpartner_pattern_category() {
+    register_block_pattern_category(
+        'runpartner',
+        array(
+            'label' => __('RunPartner Patterns', 'runpartner')
+        )
+    );
+}
+add_action('init', 'runpartner_pattern_category');
 

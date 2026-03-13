@@ -1,53 +1,8 @@
-<!-- wp:group {"layout":{"type":"constrained"}} -->
-<div class="wp-block-group"><!-- wp:template-part {"slug":"header","theme":"runpartner-theme","area":"header","align":"full"} /-->
+<!-- wp:template-part {"slug":"header","theme":"runpartner-theme","area":"header"} /-->
 
-<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group" style="margin-top:0;margin-bottom:0"><!-- wp:post-content /--></div>
-<!-- /wp:group -->
+<!-- wp:post-content /-->
 
-<!-- wp:group {"align":"full","style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"backgroundColor":"accent-5","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull has-accent-5-background-color has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)"><!-- wp:heading -->
-<h2 class="wp-block-heading">Marathon Events</h2>
-<!-- /wp:heading -->
 
-<!-- wp:columns -->
-<div class="wp-block-columns"><!-- wp:column {"width":"33.34%"} -->
-<div class="wp-block-column" style="flex-basis:33.34%"><!-- wp:query {"queryId":5,"query":{"perPage":1,"pages":0,"offset":0,"postType":"marathon","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"parents":[],"format":[]}} -->
-<div class="wp-block-query"><!-- wp:post-template -->
-<!-- wp:post-featured-image /-->
+<!-- wp:pattern {"slug":"runpartner/marathon-card"} /-->
 
-<!-- wp:post-date {"metadata":{"bindings":{"datetime":{"source":"core/post-data","args":{"field":"date"}}}}} /-->
-
-<!-- wp:post-title /-->
-<!-- /wp:post-template --></div>
-<!-- /wp:query --></div>
-<!-- /wp:column -->
-
-<!-- wp:column {"width":"33.34%"} -->
-<div class="wp-block-column" style="flex-basis:33.34%"><!-- wp:query {"queryId":5,"query":{"perPage":1,"pages":0,"offset":"1","postType":"marathon","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"parents":[],"format":[]}} -->
-<div class="wp-block-query"><!-- wp:post-template -->
-<!-- wp:post-featured-image /-->
-
-<!-- wp:post-date {"metadata":{"bindings":{"datetime":{"source":"core/post-data","args":{"field":"date"}}}}} /-->
-
-<!-- wp:post-title /-->
-<!-- /wp:post-template --></div>
-<!-- /wp:query --></div>
-<!-- /wp:column -->
-
-<!-- wp:column {"width":"33.34%"} -->
-<div class="wp-block-column" style="flex-basis:33.34%"><!-- wp:query {"queryId":5,"query":{"perPage":1,"pages":0,"offset":"2","postType":"marathon","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"parents":[],"format":[]}} -->
-<div class="wp-block-query"><!-- wp:post-template -->
-<!-- wp:post-featured-image /-->
-
-<!-- wp:post-date {"metadata":{"bindings":{"datetime":{"source":"core/post-data","args":{"field":"date"}}}}} /-->
-
-<!-- wp:post-title /-->
-<!-- /wp:post-template --></div>
-<!-- /wp:query --></div>
-<!-- /wp:column --></div>
-<!-- /wp:columns --></div>
-<!-- /wp:group -->
-
-<!-- wp:template-part {"slug":"footer","theme":"runpartner-theme","area":"footer","align":"full"} /--></div>
-<!-- /wp:group -->
+<!-- wp:template-part {"slug":"footer","theme":"runpartner-theme","area":"footer"} /-->
