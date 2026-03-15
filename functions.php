@@ -68,4 +68,26 @@ function runpartner_pattern_category() {
     );
 }
 add_action('init', 'runpartner_pattern_category');
+add_filter('query_loop_block_query_vars', function ($query, $block) {
+
+    if (
+        isset($block->context['queryId']) &&
+        $block->context['queryId'] === 101 &&
+        isset($query['post_type']) &&
+        $query['post_type'] === 'marathon'
+    ) {
+
+        $query['meta_query'] = array(
+            array(
+                'key'   => 'featured_marathon',
+                'value' => '1',
+                'compare' => '='
+            )
+        );
+
+    }
+
+    return $query;
+
+}, 10, 2);
 
