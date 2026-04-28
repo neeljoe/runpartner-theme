@@ -1,0 +1,413 @@
+/*
+Theme Name: RunPartner
+Theme URI: https://runpartner.com
+Author: RunPartner Team
+Author URI: https://runpartner.com
+Description: A bold, distinctive dark block theme for the RunPartner running community. Built with WordPress 6.9+ block editor and Interactivity API.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.9
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: runpartner
+*/
+
+/* ==========================================================================
+   Custom CSS Variables (only for values NOT in theme.json)
+   ========================================================================== */
+
+:root {
+	/* Shadows - theme.json presets generate these, but using raw values for cleaner CSS */
+	--rp-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+	--rp-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.4);
+	--rp-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.5);
+	--rp-glow-primary: 0 0 20px rgba(112, 224, 0, 0.4);
+	--rp-glow-accent: 0 0 20px rgba(240, 200, 8, 0.4);
+
+	/* Transitions */
+	--rp-transition-fast: 0.2s ease;
+	--rp-transition-normal: 0.3s ease;
+	--rp-transition-slow: 0.5s ease;
+}
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   Animation Keyframes
+   ========================================================================== */
+
+@keyframes fadeUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes slideInLeft {
+	from {
+		opacity: 0;
+		transform: translateX(-40px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideInRight {
+	from {
+		opacity: 0;
+		transform: translateX(40px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes scaleUp {
+	from {
+		opacity: 0;
+		transform: scale(0.95);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes float {
+	0%, 100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
+}
+
+@keyframes pulse {
+	0%, 100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.6;
+	}
+}
+
+@keyframes shimmer {
+	0% {
+		background-position: -200% 0;
+	}
+	100% {
+		background-position: 200% 0;
+	}
+}
+
+/* ==========================================================================
+   Entrance Animations
+   ========================================================================== */
+
+.fade-up {
+	opacity: 0;
+	transform: translateY(30px);
+	animation: fadeUp 0.6s var(--rp-transition-normal) forwards;
+}
+
+.fade-in {
+	opacity: 0;
+	animation: fadeIn 0.6s var(--rp-transition-normal) forwards;
+}
+
+.slide-in-left {
+	opacity: 0;
+	transform: translateX(-40px);
+	animation: slideInLeft 0.6s var(--rp-transition-normal) forwards;
+}
+
+.slide-in-right {
+	opacity: 0;
+	transform: translateX(40px);
+	animation: slideInRight 0.6s var(--rp-transition-normal) forwards;
+}
+
+.scale-up {
+	opacity: 0;
+	transform: scale(0.95);
+	animation: scaleUp 0.6s var(--rp-transition-normal) forwards;
+}
+
+/* ==========================================================================
+   Staggered Children Animations
+   ========================================================================== */
+
+.stagger-children > * {
+	opacity: 0;
+	transform: translateY(20px);
+	animation: fadeUp 0.5s var(--rp-transition-normal) forwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+.stagger-children > *:nth-child(7) { animation-delay: 0.7s; }
+.stagger-children > *:nth-child(8) { animation-delay: 0.8s; }
+
+/* ==========================================================================
+   Hover Effects
+   ========================================================================== */
+
+.hover-lift {
+	transition: transform var(--rp-transition-fast),
+		box-shadow var(--rp-transition-fast);
+}
+
+.hover-lift:hover {
+	transform: translateY(-4px);
+	box-shadow: var(--rp-shadow-md);
+}
+
+.hover-lift:focus {
+	transform: translateY(-2px);
+	box-shadow: var(--rp-shadow-md);
+	outline: 2px solid var(--wp--preset--color--accent);
+	outline-offset: 2px;
+}
+
+.hover-glow-primary {
+	transition: box-shadow var(--rp-transition-normal);
+}
+
+.hover-glow-primary:hover {
+	box-shadow: var(--rp-glow-primary);
+}
+
+.hover-glow-accent {
+	transition: box-shadow var(--rp-transition-normal);
+}
+
+.hover-glow-accent:hover {
+	box-shadow: var(--rp-glow-accent);
+}
+
+/* ==========================================================================
+   Continuous Motion Effects
+   ========================================================================== */
+
+.float {
+	animation: float 3s var(--rp-transition-slow) infinite;
+}
+
+.pulse {
+	animation: pulse 2s var(--rp-transition-normal) infinite;
+}
+
+/* ==========================================================================
+   Equal Height Cards Layout
+   ========================================================================== */
+
+.equal-cards {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--wp--preset--spacing--30);
+}
+
+.equal-cards > .wp-block-column {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 0;
+}
+
+.equal-cards > .wp-block-column > .wp-block-group {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+
+.equal-cards .cta-bottom {
+	margin-top: auto;
+	justify-content: center;
+}
+
+/* ==========================================================================
+   Scroll-Triggered Animations
+   ========================================================================== */
+
+.animate-on-scroll {
+	opacity: 0;
+	transform: translateY(30px);
+	transition: opacity 0.6s var(--rp-transition-normal),
+		transform 0.6s var(--rp-transition-normal);
+}
+
+.animate-on-scroll.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* ==========================================================================
+   Reduced Motion Support
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+/* ==========================================================================
+   Site Structure Styles
+   ========================================================================== */
+
+/* Footer margin reset */
+.wp-site-blocks > footer {
+	margin-block-start: 0;
+}
+
+/* Header sticky behavior (optional class) */
+.header-sticky {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	backdrop-filter: blur(8px);
+	background-color: color-mix(in srgb, var(--wp--preset--color--base) 90%, transparent);
+	border-bottom: 1px solid var(--wp--preset--color--grey-600);
+}
+
+/* ==========================================================================
+   Utility Classes
+   ========================================================================== */
+
+/* Text gradient (for special headings) */
+.text-gradient {
+	background: linear-gradient(
+		90deg,
+		var(--wp--preset--color--primary) 0%,
+		var(--wp--preset--color--accent) 100%
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+/* Skeleton loading animation */
+.skeleton {
+	background: linear-gradient(
+		90deg,
+		var(--wp--preset--color--grey-700) 0%,
+		var(--wp--preset--color--grey-600) 50%,
+		var(--wp--preset--color--grey-700) 100%
+	);
+	background-size: 200% 100%;
+	animation: shimmer 1.5s var(--rp-transition-slow) infinite;
+}
+
+/* Focus visible for accessibility */
+:focus-visible {
+	outline: 2px solid var(--wp--preset--color--accent);
+	outline-offset: 2px;
+}
+
+/* Selection color */
+::selection {
+	background-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--contrast);
+}
+
+/* ==========================================================================
+   Block-Specific Enhancements
+   ========================================================================== */
+
+/* Navigation hover underline effect */
+.wp-block-navigation a:hover {
+	text-decoration: underline;
+	text-underline-offset: 4px;
+	text-decoration-color: var(--wp--preset--color--accent);
+}
+
+/* Image hover zoom within constrained container */
+.image-zoom img {
+	transition: transform var(--rp-transition-normal);
+}
+
+.image-zoom:hover img {
+	transform: scale(1.05);
+}
+
+/* Quote border enhancement */
+blockquote {
+	position: relative;
+}
+
+blockquote::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 4px;
+	background: var(--wp--preset--color--primary);
+}
+
+/* Code block scrollbar */
+pre {
+	scrollbar-width: thin;
+	scrollbar-color: var(--wp--preset--color--grey-500) var(--wp--preset--color--grey-700);
+}
+
+pre::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+pre::-webkit-scrollbar-track {
+	background: var(--wp--preset--color--grey-700);
+}
+
+pre::-webkit-scrollbar-thumb {
+	background: var(--wp--preset--color--grey-500);
+	border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+	background: var(--wp--preset--color--grey-400);
+}
+
+/* ==========================================================================
+   Responsive Adjustments
+   ========================================================================== */
+
+@media (max-width: 768px) {
+	.stagger-children > * {
+		animation: none;
+		opacity: 1;
+		transform: none;
+	}
+}
