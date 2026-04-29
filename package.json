@@ -1,0 +1,13 @@
+{
+	"name": "runpartner-theme",
+	"version": "1.0.0",
+	"description": "RunPartner Block Theme",
+	"scripts": {
+		"start": "wp-scripts start --webpack-src-dir=resources --output-path=public --experimental-modules",
+		"build": "wp-scripts build --webpack-src-dir=resources --output-path=public --experimental-modules"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^32.0.0",
+		"@wordpress/interactivity": "^1.0.0"
+	}
+}

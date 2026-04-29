@@ -411,3 +411,26 @@ pre::-webkit-scrollbar-thumb:hover {
 		transform: none;
 	}
 }
+
+/* ==========================================================================
+   Sticky Header (Interactivity API)
+   ========================================================================== */
+
+.runpartner-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 9999;
+	transition: transform 0.3s ease;
+	will-change: transform;
+	background: var(--wp--preset--color--base, #04100a);
+}
+
+.runpartner-header.is-hidden {
+	transform: translateY(-100%);
+}
+
+.runpartner-header:not(.is-hidden) {
+	transform: translateY(0);
+}
