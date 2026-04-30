@@ -32,9 +32,8 @@ const { state, actions, callbacks } = store('runpartner', {
 	},
 	callbacks: {
 		initScroll() {
-			window.addEventListener('scroll', () => {
-				actions.handleScroll();
-			}, { passive: true });
+			window.removeEventListener('scroll', actions.handleScroll);
+			window.addEventListener('scroll', actions.handleScroll, { passive: true });
 
 			// Sync initial scroll position on page load
 			actions.handleScroll();

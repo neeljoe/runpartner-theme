@@ -280,6 +280,31 @@ body {
 		animation-iteration-count: 1 !important;
 		transition-duration: 0.01ms !important;
 	}
+
+	/* Ensure entrance-animation elements are visible from the start */
+	.fade-up,
+	.fade-in,
+	.slide-in-left,
+	.slide-in-right,
+	.scale-up,
+	.stagger-children > *,
+	.animate-on-scroll,
+	.wp-block-navigation__container .wp-block-navigation-item {
+		opacity: 1 !important;
+		transform: none !important;
+	}
+
+	/* Stop continuous motion effects */
+	.float,
+	.pulse,
+	.skeleton {
+		animation: none !important;
+	}
+
+	/* Remove GPU promotion hints */
+	.runpartner-header {
+		will-change: auto;
+	}
 }
 
 /* ==========================================================================
@@ -552,7 +577,7 @@ pre::-webkit-scrollbar-thumb:hover {
 		font-size: 1.375rem;
 		font-weight: 600;
 		letter-spacing: -0.01em;
-		color: var(--wp--preset--color--muted);
+		color: var(--wp--preset--color--contrast) !important;
 		padding: var(--wp--preset--spacing--15, 0.75rem) 0;
 		width: 100%;
 		box-sizing: border-box;
