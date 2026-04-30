@@ -552,7 +552,7 @@ pre::-webkit-scrollbar-thumb:hover {
 		font-size: 1.375rem;
 		font-weight: 600;
 		letter-spacing: -0.01em;
-		color: var(--wp--preset--color--contrast);
+		color: var(--wp--preset--color--muted);
 		padding: var(--wp--preset--spacing--15, 0.75rem) 0;
 		width: 100%;
 		box-sizing: border-box;
@@ -571,8 +571,8 @@ pre::-webkit-scrollbar-thumb:hover {
 		transition: width var(--rp-transition-normal);
 	}
 
-	.wp-block-navigation-item__content:hover {
-		color: var(--wp--preset--color--primary);
+	.wp-block-navigation__responsive-container .wp-block-navigation-item__content:hover {
+		color: var(--wp--preset--color--primary) !important;
 	}
 
 	.wp-block-navigation-item__content:hover::after {
