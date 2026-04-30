@@ -9,11 +9,10 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-// Step 1: Enable interactivity on core blocks
+// Step 1: Enable interactivity on core/group block for server-side directive processing
 add_filter('block_type_metadata_settings', 'runpartner_enable_block_interactivity');
 
 function runpartner_enable_block_interactivity(array $settings) {
-    // Enable interactivity on core/group for header
     if (isset($settings['name']) && 'core/group' === $settings['name']) {
         $settings['supports']['interactivity'] = true;
     }
@@ -31,18 +30,10 @@ function runpartner_enqueue_styles() {
     );
 }
 
-// Step 4: Enqueue interactivity script module
+// Step 3: Enqueue interactivity script module
 add_action('wp_enqueue_scripts', 'runpartner_enqueue_interactivity');
 
 function runpartner_enqueue_interactivity() {
-    // Initialize state early
-    wp_interactivity_state('runpartner', [
-        'scrollY' => 0,
-        'scrollDirection' => 'none',
-        'isScrolled' => false,
-        'headerHidden' => false,
-    ]);
-
     $script_asset = include get_theme_file_path('public/js/interactivity.asset.php');
 
     wp_enqueue_script_module(
@@ -51,4 +42,27 @@ function runpartner_enqueue_interactivity() {
         $script_asset['dependencies'],
         $script_asset['version']
     );
+}
+
+// Step 4: Add interactivity directives to header group via render filter
+add_filter('render_block_core/group', 'runpartner_render_header_interactivity', 10, 2);
+
+function runpartner_render_header_interactivity(string $content, array $block) {
+    // Only process if this is the header group (identified by class)
+    if (strpos($content, 'runpartner-header') === false) {
+        return $content;
+    }
+
+    $processor = new WP_HTML_Tag_Processor($content);
+
+    if (!$processor->next_tag(['class_name' => 'runpartner-header'])) {
+        return $processor->get_updated_html();
+    }
+
+    // Add interactivity directives programmatically
+    $processor->set_attribute('data-wp-interactive', 'runpartner');
+    $processor->set_attribute('data-wp-init', 'callbacks.initScroll');
+    $processor->set_attribute('data-wp-class--is-hidden', 'state.headerHidden');
+
+    return $processor->get_updated_html();
 }

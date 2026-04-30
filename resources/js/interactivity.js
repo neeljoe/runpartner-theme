@@ -8,7 +8,6 @@ const { state, actions, callbacks } = store('runpartner', {
 	state: {
 		scrollY: 0,
 		scrollDirection: 'none',
-		isScrolled: false,
 		headerHidden: false,
 	},
 	actions: {
@@ -24,7 +23,6 @@ const { state, actions, callbacks } = store('runpartner', {
 			lastScrollY = currentScrollY;
 			state.scrollY = currentScrollY;
 			state.scrollDirection = scrollDirection;
-			state.isScrolled = currentScrollY > SCROLL_THRESHOLD;
 
 			// Hide header on scroll down past threshold
 			if (scrollDirection === 'down' && currentScrollY > SCROLL_THRESHOLD) {
@@ -41,6 +39,9 @@ const { state, actions, callbacks } = store('runpartner', {
 			window.addEventListener('scroll', () => {
 				actions.handleScroll();
 			}, { passive: true });
+
+			// Sync initial scroll position on page load
+			actions.handleScroll();
 		},
 	},
 });
