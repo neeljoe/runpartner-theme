@@ -62,7 +62,7 @@ function runpartner_render_header_interactivity(string $content, array $block) {
     // Add interactivity directives programmatically
     $processor->set_attribute('data-wp-interactive', 'runpartner');
     $processor->set_attribute('data-wp-init', 'callbacks.initScroll');
-    $processor->set_attribute('data-wp-class--is-hidden', 'state.headerHidden');
+    $processor->set_attribute('data-wp-class--is-hidden', 'state.isHidden');
 
     return $processor->get_updated_html();
 }

@@ -6,9 +6,7 @@ const SCROLL_THRESHOLD = 100;
 
 const { state, actions, callbacks } = store('runpartner', {
 	state: {
-		scrollY: 0,
-		scrollDirection: 'none',
-		headerHidden: false,
+		isHidden: false,
 	},
 	actions: {
 		handleScroll() {
@@ -21,16 +19,14 @@ const { state, actions, callbacks } = store('runpartner', {
 			}
 
 			lastScrollY = currentScrollY;
-			state.scrollY = currentScrollY;
-			state.scrollDirection = scrollDirection;
 
 			// Hide header on scroll down past threshold
 			if (scrollDirection === 'down' && currentScrollY > SCROLL_THRESHOLD) {
-				state.headerHidden = true;
+				state.isHidden = true;
 			}
 			// Show header on scroll up
 			else if (scrollDirection === 'up') {
-				state.headerHidden = false;
+				state.isHidden = false;
 			}
 		},
 	},
