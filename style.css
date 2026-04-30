@@ -345,13 +345,6 @@ body {
    Block-Specific Enhancements
    ========================================================================== */
 
-/* Navigation hover underline effect */
-.wp-block-navigation a:hover {
-	text-decoration: underline;
-	text-underline-offset: 4px;
-	text-decoration-color: var(--wp--preset--color--accent);
-}
-
 /* Image hover zoom within constrained container */
 .image-zoom img {
 	transition: transform var(--rp-transition-normal);
@@ -413,13 +406,20 @@ pre::-webkit-scrollbar-thumb:hover {
 }
 
 /* ==========================================================================
-   Mobile Navigation Overlay
+   Mobile Navigation Overlay — Premium Aesthetic
    ========================================================================== */
 
 @media (max-width: 768px) {
-	/* Overlay container when open */
-	.wp-block-navigation__responsive-container,
-	.wp-block-navigation__responsive-container.is-visible {
+	/* Nav item stagger animation */
+	@keyframes navItemFadeUp {
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	/* Overlay container */
+	.wp-block-navigation__responsive-container {
 		position: fixed;
 		top: 0;
 		left: 0;
@@ -427,9 +427,22 @@ pre::-webkit-scrollbar-thumb:hover {
 		bottom: 0;
 		width: 100%;
 		height: 100dvh;
-		overflow-y: auto;
-		overflow-x: hidden;
 		background: var(--wp--preset--color--base, #04100a);
+		transform: translateX(100%);
+		transition: transform 0.35s ease;
+	}
+
+	.wp-block-navigation__responsive-container.is-visible {
+		transform: translateX(0);
+	}
+
+	/* Subtle gradient backdrop */
+	.wp-block-navigation__responsive-container::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: radial-gradient(ellipse at top right, rgba(112, 224, 0, 0.05) 0%, transparent 60%);
+		pointer-events: none;
 	}
 
 	/* Dialog wrapper */
@@ -441,17 +454,73 @@ pre::-webkit-scrollbar-thumb:hover {
 		flex-direction: column;
 	}
 
-	/* Inner content wrapper with padding - margin-top pushes below close button */
+	/* Close button - with glow hover */
+	.wp-block-navigation__responsive-container-close {
+		position: absolute;
+		top: var(--wp--preset--spacing--20, 1rem);
+		right: var(--wp--preset--spacing--20, 1rem);
+		z-index: 10000;
+		width: 48px;
+		height: 48px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 8px;
+		cursor: pointer;
+		padding: 0;
+		transition: background var(--rp-transition-fast), box-shadow var(--rp-transition-fast), border-color var(--rp-transition-fast);
+	}
+
+	.wp-block-navigation__responsive-container-close:hover {
+		background: rgba(112, 224, 0, 0.1);
+		border-color: var(--wp--preset--color--primary);
+		box-shadow: 0 0 20px rgba(112, 224, 0, 0.3);
+	}
+
+	.wp-block-navigation__responsive-container-close svg {
+		width: 20px;
+		height: 20px;
+	}
+
+	/* Hamburger button - same styling as close button */
+	.wp-block-navigation__responsive-container-open {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 48px;
+		height: 48px;
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 8px;
+		cursor: pointer;
+		transition: background var(--rp-transition-fast), box-shadow var(--rp-transition-fast), border-color var(--rp-transition-fast);
+	}
+
+	.wp-block-navigation__responsive-container-open:hover {
+		background: rgba(112, 224, 0, 0.1);
+		border-color: var(--wp--preset--color--primary);
+		box-shadow: 0 0 20px rgba(112, 224, 0, 0.3);
+	}
+
+	.wp-block-navigation__responsive-container-open svg {
+		width: 20px;
+		height: 20px;
+	}
+
+	/* Inner content wrapper */
 	.wp-block-navigation__responsive-container-content {
 		width: 100%;
 		max-width: 100%;
 		box-sizing: border-box;
 		padding: 0 var(--wp--preset--spacing--30, 1.5rem) var(--wp--preset--spacing--30, 1.5rem);
+		padding-right: calc(var(--wp--preset--spacing--30, 1.5rem) + 60px);
 		margin-top: 80px;
 		flex-grow: 1;
 	}
 
-	/* Navigation container (ul) inside overlay */
+	/* Navigation container (ul) */
 	.wp-block-navigation__container {
 		display: flex;
 		flex-direction: column;
@@ -463,42 +532,56 @@ pre::-webkit-scrollbar-thumb:hover {
 		box-sizing: border-box;
 	}
 
-	/* Individual nav items (li) */
-	.wp-block-navigation-item {
-		width: 100%;
-		box-sizing: border-box;
+	/* Stagger-animated nav items */
+	.wp-block-navigation__container .wp-block-navigation-item {
+		opacity: 0;
+		transform: translateY(20px);
+		animation: navItemFadeUp 0.4s ease forwards;
 	}
 
-	/* Nav links (a tag inside li) */
+	.wp-block-navigation__container .wp-block-navigation-item:nth-child(1) { animation-delay: 0.05s; }
+	.wp-block-navigation__container .wp-block-navigation-item:nth-child(2) { animation-delay: 0.13s; }
+	.wp-block-navigation__container .wp-block-navigation-item:nth-child(3) { animation-delay: 0.21s; }
+	.wp-block-navigation__container .wp-block-navigation-item:nth-child(4) { animation-delay: 0.29s; }
+	.wp-block-navigation__container .wp-block-navigation-item:nth-child(5) { animation-delay: 0.37s; }
+
+	/* Nav links with underline hover */
 	.wp-block-navigation-item__content {
 		display: block;
-		font-size: var(--wp--preset--font-size--lg, 1.75rem);
-		padding: var(--wp--preset--spacing--10, 0.5rem) 0;
+		font-family: var(--wp--preset--font-family--heading);
+		font-size: 1.375rem;
+		font-weight: 600;
+		letter-spacing: -0.01em;
+		color: var(--wp--preset--color--contrast);
+		padding: var(--wp--preset--spacing--15, 0.75rem) 0;
 		width: 100%;
 		box-sizing: border-box;
+		position: relative;
+		transition: color var(--rp-transition-fast);
 	}
 
-	/* Close button - inside dialog, top-right, no transition to prevent jumping */
-	.wp-block-navigation__responsive-container-close {
+	.wp-block-navigation-item__content::after {
+		content: "";
 		position: absolute;
-		top: var(--wp--preset--spacing--20, 1rem);
-		right: var(--wp--preset--spacing--20, 1rem);
-		z-index: 10000;
-		width: 44px;
-		height: 44px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		background: transparent;
-		border: none;
-		cursor: pointer;
-		padding: 0;
-		transition: none;
+		bottom: 0;
+		left: 0;
+		width: 0;
+		height: 1px;
+		background: var(--wp--preset--color--accent);
+		transition: width var(--rp-transition-normal);
 	}
 
-	.wp-block-navigation__responsive-container-close svg {
-		width: 24px;
-		height: 24px;
+	.wp-block-navigation-item__content:hover {
+		color: var(--wp--preset--color--primary);
+	}
+
+	.wp-block-navigation-item__content:hover::after {
+		width: 100%;
+	}
+
+	/* Remove focus outline */
+	.wp-block-navigation__responsive-container .wp-block-navigation-item__content:focus {
+		outline: none;
 	}
 
 	/* Scrollbar styling */
@@ -552,17 +635,47 @@ pre::-webkit-scrollbar-thumb:hover {
 
 	.wp-block-navigation__responsive-container .wp-block-navigation__container {
 		flex-direction: row;
-		padding: 0;
-		min-height: auto;
+		align-items: center;
+		gap: var(--wp--preset--spacing--30, 1.5rem);
 	}
 
 	.wp-block-navigation__responsive-container .wp-block-navigation-item__content {
-		font-size: inherit;
+		font-family: var(--wp--preset--font-family--heading);
+		font-size: 0.9375rem;
+		font-weight: 600;
+		letter-spacing: 0.02em;
+		text-transform: uppercase;
+		color: var(--wp--preset--color--muted);
 		padding: 0;
 		width: auto;
+		position: relative;
+		transition: color var(--rp-transition-fast);
+	}
+
+	.wp-block-navigation__responsive-container .wp-block-navigation-item__content::after {
+		content: "";
+		position: absolute;
+		bottom: -4px;
+		left: 0;
+		width: 0;
+		height: 1px;
+		background: var(--wp--preset--color--accent);
+		transition: width var(--rp-transition-normal);
+	}
+
+	.wp-block-navigation__responsive-container .wp-block-navigation-item__content:hover {
+		color: var(--wp--preset--color--primary) !important;
+	}
+
+	.wp-block-navigation__responsive-container .wp-block-navigation-item__content:hover::after {
+		width: 100%;
 	}
 
 	.wp-block-navigation__responsive-container-close {
+		display: none;
+	}
+
+	.wp-block-navigation__responsive-container-open {
 		display: none;
 	}
 }
