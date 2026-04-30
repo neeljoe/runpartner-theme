@@ -1,0 +1,61 @@
+// Hover effects
+
+.hover-lift {
+	transition: transform var(--rp-transition-fast),
+		box-shadow var(--rp-transition-fast);
+}
+
+.hover-lift:hover {
+	transform: translateY(-4px);
+	box-shadow: var(--rp-shadow-md);
+}
+
+.hover-lift:focus {
+	transform: translateY(-2px);
+	box-shadow: var(--rp-shadow-md);
+	outline: 2px solid var(--wp--preset--color--accent);
+	outline-offset: 2px;
+}
+
+.hover-glow-primary {
+	transition: box-shadow var(--rp-transition-normal);
+}
+
+.hover-glow-primary:hover {
+	box-shadow: var(--rp-glow-primary);
+}
+
+.hover-glow-accent {
+	transition: box-shadow var(--rp-transition-normal);
+}
+
+.hover-glow-accent:hover {
+	box-shadow: var(--rp-glow-accent);
+}
+
+// Text gradient
+
+.text-gradient {
+	background: linear-gradient(
+		90deg,
+		var(--wp--preset--color--primary) 0%,
+		var(--wp--preset--color--accent) 100%
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+// Focus visible
+
+:focus-visible {
+	outline: 2px solid var(--wp--preset--color--accent);
+	outline-offset: 2px;
+}
+
+// Selection color
+
+::selection {
+	background-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--contrast);
+}

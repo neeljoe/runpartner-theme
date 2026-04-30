@@ -1,0 +1,52 @@
+// Block-specific enhancements
+
+// Image zoom on hover
+
+.image-zoom img {
+	transition: transform var(--rp-transition-normal);
+}
+
+.image-zoom:hover img {
+	transform: scale(1.05);
+}
+
+// Quote border enhancement
+
+blockquote {
+	position: relative;
+}
+
+blockquote::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 4px;
+	background: var(--wp--preset--color--primary);
+}
+
+// Code block scrollbar
+
+pre {
+	scrollbar-width: thin;
+	scrollbar-color: var(--wp--preset--color--grey-500) var(--wp--preset--color--grey-700);
+}
+
+pre::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+pre::-webkit-scrollbar-track {
+	background: var(--wp--preset--color--grey-700);
+}
+
+pre::-webkit-scrollbar-thumb {
+	background: var(--wp--preset--color--grey-500);
+	border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+	background: var(--wp--preset--color--grey-400);
+}

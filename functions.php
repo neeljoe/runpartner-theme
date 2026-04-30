@@ -24,7 +24,7 @@ add_action('wp_enqueue_scripts', 'runpartner_enqueue_styles');
 function runpartner_enqueue_styles() {
     wp_enqueue_style(
         'runpartner-style',
-        get_stylesheet_uri(),
+        get_theme_file_uri('public/style.css'),
         array(),
         wp_get_theme()->get('Version')
     );

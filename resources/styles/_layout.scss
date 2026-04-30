@@ -1,0 +1,71 @@
+// Site layout and structure
+
+// Base styles
+
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+// Footer margin reset
+
+.wp-site-blocks > footer {
+	margin-block-start: 0;
+}
+
+// Header sticky behavior
+
+.header-sticky {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	backdrop-filter: blur(8px);
+	background-color: color-mix(in srgb, var(--wp--preset--color--base) 90%, transparent);
+	border-bottom: 1px solid var(--wp--preset--color--grey-600);
+}
+
+// Equal height cards layout
+
+.equal-cards {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--wp--preset--spacing--30);
+}
+
+.equal-cards > .wp-block-column {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 0;
+}
+
+.equal-cards > .wp-block-column > .wp-block-group {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+
+.equal-cards .cta-bottom {
+	margin-top: auto;
+	justify-content: center;
+}
+
+// Sticky header (Interactivity API)
+
+.runpartner-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 9999;
+	transition: transform 0.3s ease;
+	will-change: transform;
+	background: var(--wp--preset--color--base, #04100a);
+}
+
+.runpartner-header.is-hidden {
+	transform: translateY(-100%);
+}
+
+.runpartner-header:not(.is-hidden) {
+	transform: translateY(0);
+}

@@ -1,0 +1,46 @@
+// Reduced motion support
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	// Ensure entrance-animation elements are visible from the start
+	.fade-up,
+	.fade-in,
+	.slide-in-left,
+	.slide-in-right,
+	.scale-up,
+	.stagger-children > *,
+	.animate-on-scroll,
+	.wp-block-navigation__container .wp-block-navigation-item {
+		opacity: 1 !important;
+		transform: none !important;
+	}
+
+	// Stop continuous motion effects
+	.float,
+	.pulse,
+	.skeleton {
+		animation: none !important;
+	}
+
+	// Remove GPU promotion hints
+	.runpartner-header {
+		will-change: auto;
+	}
+}
+
+// Responsive adjustments
+
+@media (max-width: 768px) {
+	.stagger-children > * {
+		animation: none;
+		opacity: 1;
+		transform: none;
+	}
+}

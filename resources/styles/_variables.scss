@@ -1,0 +1,15 @@
+// Custom CSS Variables (only for values NOT in theme.json)
+
+:root {
+	// Shadows
+	--rp-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+	--rp-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.4);
+	--rp-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.5);
+	--rp-glow-primary: 0 0 20px rgba(112, 224, 0, 0.4);
+	--rp-glow-accent: 0 0 20px rgba(240, 200, 8, 0.4);
+
+	// Transitions
+	--rp-transition-fast: 0.2s ease;
+	--rp-transition-normal: 0.3s ease;
+	--rp-transition-slow: 0.5s ease;
+}
