@@ -413,6 +413,110 @@ pre::-webkit-scrollbar-thumb:hover {
 }
 
 /* ==========================================================================
+   Mobile Navigation Overlay
+   ========================================================================== */
+
+@media (max-width: 768px) {
+	/* Overlay container when open */
+	.wp-block-navigation__responsive-container,
+	.wp-block-navigation__responsive-container.is-visible {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 100%;
+		height: 100dvh;
+		overflow-y: auto;
+		overflow-x: hidden;
+		background: var(--wp--preset--color--base, #04100a);
+	}
+
+	/* Dialog wrapper */
+	.wp-block-navigation__responsive-dialog {
+		position: relative;
+		width: 100%;
+		min-height: 100dvh;
+		display: flex;
+		flex-direction: column;
+	}
+
+	/* Inner content wrapper with padding - margin-top pushes below close button */
+	.wp-block-navigation__responsive-container-content {
+		width: 100%;
+		max-width: 100%;
+		box-sizing: border-box;
+		padding: 0 var(--wp--preset--spacing--30, 1.5rem) var(--wp--preset--spacing--30, 1.5rem);
+		margin-top: 80px;
+		flex-grow: 1;
+	}
+
+	/* Navigation container (ul) inside overlay */
+	.wp-block-navigation__container {
+		display: flex;
+		flex-direction: column;
+		gap: var(--wp--preset--spacing--20, 1rem);
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	/* Individual nav items (li) */
+	.wp-block-navigation-item {
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	/* Nav links (a tag inside li) */
+	.wp-block-navigation-item__content {
+		display: block;
+		font-size: var(--wp--preset--font-size--lg, 1.75rem);
+		padding: var(--wp--preset--spacing--10, 0.5rem) 0;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	/* Close button - inside dialog, top-right, no transition to prevent jumping */
+	.wp-block-navigation__responsive-container-close {
+		position: absolute;
+		top: var(--wp--preset--spacing--20, 1rem);
+		right: var(--wp--preset--spacing--20, 1rem);
+		z-index: 10000;
+		width: 44px;
+		height: 44px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: transparent;
+		border: none;
+		cursor: pointer;
+		padding: 0;
+		transition: none;
+	}
+
+	.wp-block-navigation__responsive-container-close svg {
+		width: 24px;
+		height: 24px;
+	}
+
+	/* Scrollbar styling */
+	.wp-block-navigation__responsive-container::-webkit-scrollbar {
+		width: 6px;
+	}
+
+	.wp-block-navigation__responsive-container::-webkit-scrollbar-thumb {
+		background: var(--wp--preset--color--grey-500);
+		border-radius: 3px;
+	}
+
+	.wp-block-navigation__responsive-container::-webkit-scrollbar-track {
+		background: transparent;
+	}
+}
+
+/* ==========================================================================
    Sticky Header (Interactivity API)
    ========================================================================== */
 
@@ -433,4 +537,32 @@ pre::-webkit-scrollbar-thumb:hover {
 
 .runpartner-header:not(.is-hidden) {
 	transform: translateY(0);
+}
+
+/* Ensure desktop nav stays inline (not overlay) */
+@media (min-width: 769px) {
+	.wp-block-navigation__responsive-container {
+		position: static;
+		display: flex;
+		height: auto;
+		width: auto;
+		background: transparent;
+		overflow: visible;
+	}
+
+	.wp-block-navigation__responsive-container .wp-block-navigation__container {
+		flex-direction: row;
+		padding: 0;
+		min-height: auto;
+	}
+
+	.wp-block-navigation__responsive-container .wp-block-navigation-item__content {
+		font-size: inherit;
+		padding: 0;
+		width: auto;
+	}
+
+	.wp-block-navigation__responsive-container-close {
+		display: none;
+	}
 }
