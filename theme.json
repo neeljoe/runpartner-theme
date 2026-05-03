@@ -19,7 +19,7 @@
 					"slug": "contrast"
 				},
 				{
-					"color": "#FFEE58",
+					"color": "#977F04",
 					"name": "Accent 1",
 					"slug": "accent-1"
 				},
@@ -29,7 +29,7 @@
 					"slug": "accent-2"
 				},
 				{
-					"color": "#503AA8",
+					"color": "#295002",
 					"name": "Accent 3",
 					"slug": "accent-3"
 				},
@@ -61,7 +61,7 @@
 			]
 		},
 		"layout": {
-			"contentSize": "645px",
+			"contentSize": "720px",
 			"wideSize": "1340px"
 		},
 		"shadow": {
