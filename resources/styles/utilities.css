@@ -1,4 +1,4 @@
-// Hover effects
+/* Hover effects */
 
 .hover-lift {
 	transition: transform var(--rp-transition-fast),
@@ -13,7 +13,7 @@
 .hover-lift:focus {
 	transform: translateY(-2px);
 	box-shadow: var(--rp-shadow-md);
-	outline: 2px solid var(--wp--preset--color--accent);
+	outline: 2px solid var(--wp--preset--color--accent-1);
 	outline-offset: 2px;
 }
 
@@ -33,29 +33,29 @@
 	box-shadow: var(--rp-glow-accent);
 }
 
-// Text gradient
+/* Text gradient */
 
 .text-gradient {
 	background: linear-gradient(
 		90deg,
-		var(--wp--preset--color--primary) 0%,
-		var(--wp--preset--color--accent) 100%
+		var(--wp--preset--color--lime-green) 0%,
+		var(--wp--preset--color--orange) 100%
 	);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
 }
 
-// Focus visible
+/* Focus visible */
 
 :focus-visible {
-	outline: 2px solid var(--wp--preset--color--accent);
+	outline: 2px solid var(--wp--preset--color--accent-1);
 	outline-offset: 2px;
 }
 
-// Selection color
+/* Selection color */
 
 ::selection {
-	background-color: var(--wp--preset--color--primary);
+	background-color: var(--wp--preset--color--lime-green);
 	color: var(--wp--preset--color--contrast);
 }

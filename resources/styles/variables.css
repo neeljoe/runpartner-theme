@@ -1,0 +1,8 @@
+/* Custom CSS Variables (only for values NOT in theme.json) */
+
+:root {
+	/* Transitions */
+	--rp-transition-fast: 0.2s ease;
+	--rp-transition-normal: 0.3s ease;
+	--rp-transition-slow: 0.5s ease;
+}

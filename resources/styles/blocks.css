@@ -1,6 +1,6 @@
-// Block-specific enhancements
+/* Block-specific enhancements */
 
-// Image zoom on hover
+/* Image zoom on hover */
 
 .image-zoom img {
 	transition: transform var(--rp-transition-normal);
@@ -10,7 +10,7 @@
 	transform: scale(1.05);
 }
 
-// Quote border enhancement
+/* Quote border enhancement */
 
 blockquote {
 	position: relative;
@@ -23,14 +23,14 @@ blockquote::before {
 	top: 0;
 	bottom: 0;
 	width: 4px;
-	background: var(--wp--preset--color--primary);
+	background: var(--wp--preset--color--accent-3);
 }
 
-// Code block scrollbar
+/* Code block scrollbar */
 
 pre {
 	scrollbar-width: thin;
-	scrollbar-color: var(--wp--preset--color--grey-500) var(--wp--preset--color--grey-700);
+	scrollbar-color: var(--wp--preset--color--accent-4) var(--wp--preset--color--base);
 }
 
 pre::-webkit-scrollbar {
@@ -39,14 +39,14 @@ pre::-webkit-scrollbar {
 }
 
 pre::-webkit-scrollbar-track {
-	background: var(--wp--preset--color--grey-700);
+	background: var(--wp--preset--color--base);
 }
 
 pre::-webkit-scrollbar-thumb {
-	background: var(--wp--preset--color--grey-500);
+	background: var(--wp--preset--color--accent-4);
 	border-radius: 4px;
 }
 
 pre::-webkit-scrollbar-thumb:hover {
-	background: var(--wp--preset--color--grey-400);
+	background: var(--wp--preset--color--accent-5);
 }

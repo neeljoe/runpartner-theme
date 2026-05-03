@@ -1,4 +1,4 @@
-// Reduced motion support
+/* Reduced motion support */
 
 @media (prefers-reduced-motion: reduce) {
 	*,
@@ -9,7 +9,7 @@
 		transition-duration: 0.01ms !important;
 	}
 
-	// Ensure entrance-animation elements are visible from the start
+	/* Ensure entrance-animation elements are visible from the start */
 	.fade-up,
 	.fade-in,
 	.slide-in-left,
@@ -22,20 +22,20 @@
 		transform: none !important;
 	}
 
-	// Stop continuous motion effects
+	/* Stop continuous motion effects */
 	.float,
 	.pulse,
 	.skeleton {
 		animation: none !important;
 	}
 
-	// Remove GPU promotion hints
+	/* Remove GPU promotion hints */
 	.runpartner-header {
 		will-change: auto;
 	}
 }
 
-// Responsive adjustments
+/* Responsive adjustments */
 
 @media (max-width: 768px) {
 	.stagger-children > * {

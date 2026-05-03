@@ -6,12 +6,16 @@
 		"start": "wp-scripts start --webpack-src-dir=resources --output-path=public --experimental-modules",
 		"build": "npm run build:js && npm run build:styles",
 		"build:js": "wp-scripts start --webpack-src-dir=resources --output-path=public --experimental-modules",
-		"build:styles": "sass resources/styles/style.scss:public/style.css --style=compressed --no-source-map",
-		"watch:styles": "sass resources/styles/style.scss:public/style.css --watch --style=expanded"
+		"build:styles": "node -e \"process.env.NODE_ENV='production'\" && postcss resources/styles/style.css --output public/style.css",
+		"watch:styles": "postcss resources/styles/style.css --output public/style.css --watch"
 	},
 	"devDependencies": {
 		"@wordpress/interactivity": "^1.0.0",
 		"@wordpress/scripts": "^32.0.0",
-		"sass": "^1.99.0"
+		"postcss": "^8",
+		"postcss-cli": "^11",
+		"postcss-import": "^16",
+		"postcss-preset-env": "^10",
+		"cssnano": "^7"
 	}
 }

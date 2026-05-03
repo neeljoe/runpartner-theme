@@ -1,19 +1,19 @@
-// Site layout and structure
+/* Site layout and structure */
 
-// Base styles
+/* Base styles */
 
 body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 
-// Footer margin reset
+/* Footer margin reset */
 
 .wp-site-blocks > footer {
 	margin-block-start: 0;
 }
 
-// Header sticky behavior
+/* Header sticky behavior */
 
 .header-sticky {
 	position: sticky;
@@ -21,10 +21,10 @@ body {
 	z-index: 100;
 	backdrop-filter: blur(8px);
 	background-color: color-mix(in srgb, var(--wp--preset--color--base) 90%, transparent);
-	border-bottom: 1px solid var(--wp--preset--color--grey-600);
+	border-bottom: 1px solid var(--wp--preset--color--accent-4);
 }
 
-// Equal height cards layout
+/* Equal height cards layout */
 
 .equal-cards {
 	display: flex;
@@ -49,7 +49,7 @@ body {
 	justify-content: center;
 }
 
-// Sticky header (Interactivity API)
+/* Sticky header (Interactivity API) */
 
 .runpartner-header {
 	position: fixed;
@@ -57,6 +57,9 @@ body {
 	left: 0;
 	right: 0;
 	z-index: 9999;
+	height: 70px;
+	display: flex;
+	align-items: center;
 	transition: transform 0.3s ease;
 	will-change: transform;
 	background: var(--wp--preset--color--base, #04100a);
