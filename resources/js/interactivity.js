@@ -20,12 +20,9 @@ const { state, actions, callbacks } = store('runpartner', {
 
 			lastScrollY = currentScrollY;
 
-			// Hide header on scroll down past threshold
 			if (scrollDirection === 'down' && currentScrollY > SCROLL_THRESHOLD) {
 				state.isHidden = true;
-			}
-			// Show header on scroll up
-			else if (scrollDirection === 'up') {
+			} else if (scrollDirection === 'up') {
 				state.isHidden = false;
 			}
 		},
@@ -35,8 +32,42 @@ const { state, actions, callbacks } = store('runpartner', {
 			window.removeEventListener('scroll', actions.handleScroll);
 			window.addEventListener('scroll', actions.handleScroll, { passive: true });
 
-			// Sync initial scroll position on page load
 			actions.handleScroll();
 		},
 	},
 });
+
+// Scroll-triggered animations via IntersectionObserver
+function initScrollAnimations() {
+	const prefersReducedMotion = window.matchMedia(
+		'(prefers-reduced-motion: reduce)'
+	);
+
+	if (prefersReducedMotion.matches) return;
+
+	const animatedElements = document.querySelectorAll('.animate-on-scroll');
+	if (animatedElements.length === 0) return;
+
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('is-visible');
+					observer.unobserve(entry.target);
+				}
+			});
+		},
+		{
+			threshold: 0.15,
+			rootMargin: '0px 0px -50px 0px',
+		}
+	);
+
+	animatedElements.forEach((el) => observer.observe(el));
+}
+
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', initScrollAnimations);
+} else {
+	initScrollAnimations();
+}
