@@ -436,6 +436,122 @@ body {
 	gap: var(--wp--preset--spacing--30);
 }
 
+/* ========================================
+   Navigation — Desktop + Mobile
+   ======================================== */
+
+/* --- Site Title: Gradient Glow on Hover --- */
+
+.wp-block-site-title a {
+	transition: text-shadow 0.3s ease;
+	transition: text-shadow var(--rp-transition-normal);
+}
+
+.wp-block-site-title a:hover {
+	text-shadow:
+		0 0 8px color-mix(in srgb, var(--wp--preset--color--lime-green) 60%, transparent),
+		0 0 20px color-mix(in srgb, var(--wp--preset--color--orange) 40%, transparent);
+}
+
+/* --- Hamburger Button --- */
+
+.wp-block-navigation__responsive-container-open {
+	background: transparent;
+	border: 1px solid var(--wp--preset--color--accent-6);
+	border-radius: 5px;
+	padding: 0.5rem;
+	cursor: pointer;
+	transition:
+		box-shadow 0.3s ease,
+		border-color 0.3s ease;
+	transition:
+		box-shadow var(--rp-transition-normal),
+		border-color var(--rp-transition-normal);
+	color: inherit;
+}
+
+.wp-block-navigation__responsive-container-open:hover,
+.wp-block-navigation__responsive-container-open:focus-visible {
+	border-color: var(--wp--preset--color--lime-green);
+	box-shadow:
+		0 0 8px color-mix(in srgb, var(--wp--preset--color--lime-green) 12%, transparent);
+}
+
+/* --- Close Button (Mobile Overlay) --- */
+
+.wp-block-navigation__responsive-container-close {
+	background: transparent;
+	border: 1px solid var(--wp--preset--color--accent-6);
+	border-radius: 5px;
+	padding: 0.5rem;
+	cursor: pointer;
+	transition:
+		box-shadow 0.3s ease,
+		border-color 0.3s ease;
+	transition:
+		box-shadow var(--rp-transition-normal),
+		border-color var(--rp-transition-normal);
+	color: inherit;
+}
+
+.wp-block-navigation__responsive-container-close:hover,
+.wp-block-navigation__responsive-container-close:focus-visible {
+	border-color: var(--wp--preset--color--orange);
+	box-shadow:
+		0 0 8px color-mix(in srgb, var(--wp--preset--color--orange) 12%, transparent);
+}
+
+/* ========================================
+   Desktop Navigation Links — Pill Shaped
+   ======================================== */
+
+@media (min-width: 783px) {
+	.wp-block-navigation .wp-block-navigation-item__content {
+		display: inline-block;
+		padding: 0.3em 1.25em;
+		border-radius: 999px;
+		background: transparent;
+		transition:
+			background 0.2s ease,
+			box-shadow 0.2s ease;
+		transition:
+			background var(--rp-transition-fast),
+			box-shadow var(--rp-transition-fast);
+	}
+
+	.wp-block-navigation .wp-block-navigation-item__content:hover,
+	.wp-block-navigation .wp-block-navigation-item__content:focus-visible {
+		background: color-mix(in srgb, var(--wp--preset--color--contrast) 6%, transparent);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+	}
+}
+
+/* ========================================
+   Mobile Overlay — Nav Links as Pills
+   ======================================== */
+
+@media (max-width: 782px) {
+	.wp-block-navigation__responsive-container-content .wp-block-navigation-item__content {
+		display: inline-block;
+		padding: 0.3em 1.25em !important;
+		border-radius: 999px;
+		background: transparent;
+		transition:
+			background 0.2s ease,
+			box-shadow 0.2s ease;
+		transition:
+			background var(--rp-transition-fast),
+			box-shadow var(--rp-transition-fast);
+		margin: 0.25em 0;
+	}
+
+	.wp-block-navigation__responsive-container-content .wp-block-navigation-item__content:hover,
+	.wp-block-navigation__responsive-container-content .wp-block-navigation-item__content:focus-visible {
+		background: color-mix(in srgb, var(--wp--preset--color--contrast) 6%, transparent);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+	}
+}
+
 /* Reduced motion support */
 
 @media (prefers-reduced-motion: reduce) {
@@ -455,10 +571,7 @@ body {
 	.scale-up,
 	.stagger-children > *,
 	.animate-on-scroll,
-	.wp-block-navigation__container .wp-block-navigation-item {
-		opacity: 1 !important;
-		transform: none !important;
-	}
+	
 
 	/* Stop continuous motion effects */
 	.float,
@@ -467,10 +580,7 @@ body {
 		animation: none !important;
 	}
 
-	/* Remove GPU promotion hints */
-	.runpartner-header {
-		will-change: auto;
-	}
+
 }
 
 /* Responsive adjustments */

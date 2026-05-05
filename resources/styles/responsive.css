@@ -17,10 +17,7 @@
 	.scale-up,
 	.stagger-children > *,
 	.animate-on-scroll,
-	.wp-block-navigation__container .wp-block-navigation-item {
-		opacity: 1 !important;
-		transform: none !important;
-	}
+	
 
 	/* Stop continuous motion effects */
 	.float,
@@ -29,10 +26,7 @@
 		animation: none !important;
 	}
 
-	/* Remove GPU promotion hints */
-	.runpartner-header {
-		will-change: auto;
-	}
+
 }
 
 /* Responsive adjustments */
