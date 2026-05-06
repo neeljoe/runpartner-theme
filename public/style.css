@@ -174,10 +174,10 @@ Text Domain: runpartner
 .animate-on-scroll {
 	opacity: 0;
 	transform: translateY(30px);
-	transition: opacity 0.6s 0.3s ease,
-		transform 0.6s 0.3s ease;
-	transition: opacity 0.6s var(--rp-transition-normal),
-		transform 0.6s var(--rp-transition-normal);
+	transition: opacity 0.3s 0.3s ease,
+		transform 0.3s 0.3s ease;
+	transition: opacity 0.3s var(--rp-transition-normal),
+		transform 0.3s var(--rp-transition-normal);
 }
 
 .animate-on-scroll.is-visible {
