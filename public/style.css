@@ -222,12 +222,12 @@ Text Domain: runpartner
 
 .hover-lift:hover {
 	transform: translateY(-4px);
-	box-shadow: var(--rp-shadow-md);
+	box-shadow: var(--wp--preset--shadow--md);
 }
 
 .hover-lift:focus {
 	transform: translateY(-2px);
-	box-shadow: var(--rp-shadow-md);
+	box-shadow: var(--wp--preset--shadow--md);
 	outline: 2px solid var(--wp--preset--color--accent-1);
 	outline-offset: 2px;
 }
@@ -238,7 +238,7 @@ Text Domain: runpartner
 }
 
 .hover-glow-primary:hover {
-	box-shadow: var(--rp-glow-primary);
+	box-shadow: var(--wp--preset--shadow--glow-primary);
 }
 
 .hover-glow-accent {
@@ -247,7 +247,7 @@ Text Domain: runpartner
 }
 
 .hover-glow-accent:hover {
-	box-shadow: var(--rp-glow-accent);
+	box-shadow: var(--wp--preset--shadow--glow-accent);
 }
 
 /* Text gradient */
@@ -283,6 +283,21 @@ Text Domain: runpartner
 }
 
 /* Block-specific enhancements */
+
+/* Post hero cover overlay gradient */
+
+.post-hero.wp-block-cover::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		to top,
+		var(--wp--preset--color--base) 0%,
+		color-mix(in srgb, var(--wp--preset--color--base) 85%, transparent) 50%,
+		transparent 100%
+	);
+	pointer-events: none;
+}
 
 /* Image zoom on hover */
 
@@ -347,72 +362,6 @@ body {
 
 .wp-site-blocks > footer {
 	margin-block-start: 0;
-}
-
-/* Equal height cards layout */
-
-.equal-cards {
-	display: flex;
-	flex-wrap: wrap;
-	gap: var(--wp--preset--spacing--30);
-}
-
-.equal-cards > .wp-block-column {
-	display: flex;
-	flex-direction: column;
-	flex-grow: 0;
-}
-
-.equal-cards > .wp-block-column > .wp-block-group {
-	display: flex;
-	flex-direction: column;
-	flex-grow: 1;
-}
-
-.equal-cards .cta-bottom {
-	margin-top: auto;
-	justify-content: center;
-}
-
-/* Single event template */
-
-.event-hero {
-	position: relative;
-}
-
-.event-hero .wp-block-post-featured-image {
-	margin: 0;
-}
-
-.event-hero .wp-block-post-featured-image img {
-	width: 100%;
-	height: 65vh;
-	min-height: 320px;
-	-o-object-fit: cover;
-	   object-fit: cover;
-	display: block;
-}
-
-.event-hero__overlay {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	background: linear-gradient(
-		to top,
-		var(--wp--preset--color--base) 0%,
-		color-mix(in srgb, var(--wp--preset--color--base) 85%, transparent) 50%,
-		transparent 100%
-	);
-	padding-top: var(--wp--preset--spacing--80);
-}
-
-.event-hero__title {
-	margin-bottom: var(--wp--preset--spacing--20);
-}
-
-.event-hero__subtitle {
-	margin: 0;
 }
 
 /* Event details card */

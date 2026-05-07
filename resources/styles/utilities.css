@@ -7,12 +7,12 @@
 
 .hover-lift:hover {
 	transform: translateY(-4px);
-	box-shadow: var(--rp-shadow-md);
+	box-shadow: var(--wp--preset--shadow--md);
 }
 
 .hover-lift:focus {
 	transform: translateY(-2px);
-	box-shadow: var(--rp-shadow-md);
+	box-shadow: var(--wp--preset--shadow--md);
 	outline: 2px solid var(--wp--preset--color--accent-1);
 	outline-offset: 2px;
 }
@@ -22,7 +22,7 @@
 }
 
 .hover-glow-primary:hover {
-	box-shadow: var(--rp-glow-primary);
+	box-shadow: var(--wp--preset--shadow--glow-primary);
 }
 
 .hover-glow-accent {
@@ -30,7 +30,7 @@
 }
 
 .hover-glow-accent:hover {
-	box-shadow: var(--rp-glow-accent);
+	box-shadow: var(--wp--preset--shadow--glow-accent);
 }
 
 /* Text gradient */
