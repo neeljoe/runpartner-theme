@@ -299,6 +299,24 @@ Text Domain: runpartner
 	pointer-events: none;
 }
 
+/* Post title in hero cover — readability */
+
+.post-hero .wp-block-post-title {
+	text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+	margin-bottom: var(--wp--preset--spacing--50);
+}
+
+/* Category terms in hero cover — pill badges */
+
+.post-hero .wp-block-post-terms a {
+	display: inline-block;
+	padding: 0.2em 0.8em;
+	border-radius: 999px;
+	background: var(--wp--preset--color--accent-7);
+	margin: 0 0.25em 0.25em 0;
+	text-decoration: none;
+}
+
 /* Image zoom on hover */
 
 .image-zoom img {
