@@ -25,6 +25,17 @@ function initScrollAnimations() {
 	);
 
 	animatedElements.forEach((el) => observer.observe(el));
+
+	// Auto-trigger elements near the viewport after hero finishes loading
+	setTimeout(() => {
+		animatedElements.forEach((el) => {
+			const rect = el.getBoundingClientRect();
+			if (rect.top < window.innerHeight + 100) {
+				el.classList.add('is-visible');
+				observer.unobserve(el);
+			}
+		});
+	}, 500);
 }
 
 if (document.readyState === 'loading') {

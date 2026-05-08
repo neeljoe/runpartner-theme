@@ -16,8 +16,11 @@
 	.slide-in-right,
 	.scale-up,
 	.stagger-children > *,
-	.animate-on-scroll,
-	
+	.animate-on-scroll {
+		opacity: 1;
+		transform: none;
+		animation: none !important;
+	}
 
 	/* Stop continuous motion effects */
 	.float,
@@ -25,8 +28,6 @@
 	.skeleton {
 		animation: none !important;
 	}
-
-
 }
 
 /* Responsive adjustments */

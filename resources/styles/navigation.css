@@ -81,6 +81,22 @@
 }
 
 /* ========================================
+   Mobile Overlay — Clear foreground when overlay is open
+   Prevents hero nav bar from showing through semi-transparent overlay
+   ======================================== */
+
+.wp-block-cover__inner-container:has(.wp-block-navigation__responsive-container.is-menu-open) .wp-block-site-title,
+.wp-block-cover__inner-container:has(.wp-block-navigation__responsive-container.is-menu-open) .wp-block-navigation__responsive-container-open {
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity var(--rp-transition-fast);
+}
+
+.wp-block-cover__inner-container:has(.wp-block-navigation__responsive-container.is-menu-open) > .alignwide:first-child {
+	background: transparent !important;
+}
+
+/* ========================================
    Mobile Overlay — Nav Links as Pills
    ======================================== */
 
@@ -101,6 +117,16 @@
 		background: color-mix(in srgb, var(--wp--preset--color--contrast) 6%, transparent);
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 	}
+}
+@media (max-width: 600px) {
+.wp-block-navigation__responsive-close {
+    background: color-mix(in srgb, var(--wp--preset--color--base) 30%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid color-mix(in srgb, var(--wp--preset--color--contrast) 10%, transparent);
+}
 }
 
 
