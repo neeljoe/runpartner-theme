@@ -402,6 +402,13 @@ body {
 	gap: var(--wp--preset--spacing--30);
 }
 
+/* Coach hero — blurred featured image background */
+
+.coach-hero .wp-block-cover__image-background {
+	filter: blur(200px);
+	transform: scale(1.5);
+}
+
 /* ========================================
    Navigation — Desktop + Mobile
    ======================================== */
