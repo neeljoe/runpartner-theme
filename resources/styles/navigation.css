@@ -14,12 +14,7 @@
 		0 0 20px color-mix(in srgb, var(--wp--preset--color--orange) 40%, transparent);
 }
 
-/* --- Post Hero Nav — Glassmorphism --- */
 
-.post-hero-nav {
-	backdrop-filter: blur(8px);
-	-webkit-backdrop-filter: blur(8px);
-}
 
 /* --- Hamburger Button --- */
 
@@ -107,4 +102,5 @@
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 	}
 }
+
 

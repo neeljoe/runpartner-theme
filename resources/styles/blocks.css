@@ -9,7 +9,7 @@
 	background: linear-gradient(
 		to top,
 		var(--wp--preset--color--base) 0%,
-		color-mix(in srgb, var(--wp--preset--color--base) 85%, transparent) 50%,
+		color-mix(in srgb, var(--wp--preset--color--base) 45%, transparent) 30%,
 		transparent 100%
 	);
 	pointer-events: none;
