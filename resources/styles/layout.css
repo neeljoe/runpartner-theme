@@ -38,3 +38,40 @@ body {
 	filter: blur(200px);
 	transform: scale(1.5);
 }
+
+/* Coach hero — portrait styling */
+
+.coach-hero .wp-block-post-featured-image img {
+	border-radius: 12px;
+	border: 1px solid color-mix(in srgb, var(--wp--preset--color--contrast) 10%, transparent);
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Coach excerpt card */
+
+.coach-excerpt-card {
+	border: 1px solid color-mix(in srgb, var(--wp--preset--color--accent-4) 15%, transparent);
+	background: color-mix(in srgb, var(--wp--preset--color--base) 97%, var(--wp--preset--color--accent-4));
+	border-radius: 8px;
+}
+
+.coach-excerpt-card .wp-block-post-excerpt__excerpt {
+	font-size: var(--wp--preset--font-size--medium);
+	line-height: 1.6;
+	color: var(--wp--preset--color--contrast);
+	margin: 0;
+}
+
+.coach-excerpt-card .wp-block-post-excerpt__more-link {
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 500;
+	color: var(--wp--preset--color--accent-4);
+	text-decoration: none;
+	display: inline-block;
+	margin-top: 0.75rem;
+	transition: opacity 0.2s ease;
+}
+
+.coach-excerpt-card .wp-block-post-excerpt__more-link:hover {
+	opacity: 0.7;
+}
