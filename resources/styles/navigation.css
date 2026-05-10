@@ -120,9 +120,9 @@
 }
 @media (max-width: 600px) {
 .wp-block-navigation__responsive-close {
-    background: color-mix(in srgb, var(--wp--preset--color--base) 30%, transparent);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: color-mix(in srgb, var(--wp--preset--color--base) 70%, transparent);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     padding: 1rem;
     border-radius: 12px;
     border: 1px solid color-mix(in srgb, var(--wp--preset--color--contrast) 10%, transparent);
