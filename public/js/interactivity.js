@@ -24,7 +24,7 @@ function initScrollAnimations() {
   setTimeout(() => {
     animatedElements.forEach(el => {
       const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight + 100) {
+      if (rect.top < window.innerHeight + 500) {
         el.classList.add('is-visible');
         observer.unobserve(el);
       }
