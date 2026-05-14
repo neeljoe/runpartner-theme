@@ -52,7 +52,7 @@
 				<!-- /wp:navigation -->
 
 				<!-- wp:navigation {"overlayMenu":"never","layout":{"type":"flex","orientation":"vertical"}} -->
-					<!-- wp:navigation-link {"label":"<?php esc_html_e( 'Events', 'runpartner-running-theme' ); ?>","url":"#"} /-->
+					<!-- wp:navigation-link {"label":"<?php esc_html_e( 'Events', 'runpartner-running-theme' ); ?>","url":"http://runpartner.local/events/"} /-->
 
 					<!-- wp:navigation-link {"label":"<?php esc_html_e( 'Shop', 'runpartner-running-theme' ); ?>","url":"#"} /-->
 
