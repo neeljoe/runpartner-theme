@@ -1,0 +1,36 @@
+/* Button hover and animation enhancements */
+
+.wp-block-button__link {
+	background-size: 200% 100%;
+	background-image: linear-gradient(
+		to right,
+		var(--wp--preset--color--contrast) 50%,
+		transparent 50%
+	);
+	background-position: 100% 0;
+	transition: background-position var(--rp-transition-normal),
+		transform var(--rp-transition-fast),
+		box-shadow var(--rp-transition-fast);
+	cursor: pointer;
+}
+
+.wp-block-button__link:hover {
+	background-position: 0 0;
+	color: var(--wp--preset--color--base);
+	transform: translateY(-2px);
+	box-shadow: var(--wp--preset--shadow--glow-accent);
+}
+
+.wp-block-button__link:active {
+	transform: scale(0.97);
+}
+
+.is-style-outline .wp-block-button__link {
+	background-color: var(--wp--preset--color--lime-green);
+	color: var(--wp--preset--color--base);
+}
+
+.is-style-outline .wp-block-button__link:hover {
+	color: var(--wp--preset--color--base);
+	box-shadow: var(--wp--preset--shadow--glow-primary);
+}

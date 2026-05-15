@@ -19,6 +19,7 @@ Text Domain: runpartner
 @import "variables.css";
 @import "animations.css";
 @import "animation-classes.css";
+@import "buttons.css";
 @import "utilities.css";
 @import "blocks.css";
 @import "layout.css";

@@ -237,39 +237,28 @@
 					"radius": "100px"
 				}
 			},
-			"core/button": {
-				"border": {
-					"radius": {
-						"bottomLeft": "8px",
-						"bottomRight": "8px",
-						"topLeft": "8px",
-						"topRight": "8px"
-					}
-				},
-				"color": {
-					"background": "var(--wp--preset--color--orange)"
-				},
-				"typography": {
-					"fontSize": "var(--wp--preset--font-size--medium)",
-					"fontStyle": "normal",
-					"fontWeight": "500"
-				},
+			 "core/button": {
 				"variations": {
 					"outline": {
-						"border": {
-							"color": "currentColor",
-							"width": "1px"
-						},
 						"color": {
-							"text": "var(--wp--preset--color--orange)"
+							"background": "var(--wp--preset--color--lime-green)",
+							"text": "var(--wp--preset--color--base)"
 						},
-						"css": ".wp-block-button__link:not(.has-background):hover {background-color:color-mix(in srgb, var(--wp--preset--color--contrast) 5%, transparent);}",
 						"spacing": {
 							"padding": {
-								"bottom": "calc(1rem - 1px)",
-								"left": "calc(2.25rem - 1px)",
-								"right": "calc(2.25rem - 1px)",
-								"top": "calc(1rem - 1px)"
+								"bottom": "0.8rem",
+								"left": "2rem",
+								"right": "2rem",
+								"top": "0.8rem"
+							}
+						},
+						"typography": {
+							"fontSize": "var(--wp--preset--font-size--medium)"
+						},
+						":focus": {
+							"outline": {
+								"color": "var(--wp--preset--color--accent-4)",
+								"offset": "2px"
 							}
 						}
 					}
@@ -620,31 +609,31 @@
 		},
 		"elements": {
 			"button": {
+				"border": {
+					"radius": "999px"
+				},
+				":active": {
+					"color": {
+						"background": "color-mix(in srgb, var(--wp--preset--color--orange) 70%, transparent)",
+						"text": "var(--wp--preset--color--base)"
+					}
+				},
 				":focus": {
 					"outline": {
 						"color": "var(--wp--preset--color--accent-4)",
 						"offset": "2px"
 					}
 				},
-				":hover": {
-					"border": {
-						"color": "transparent"
-					},
-					"color": {
-						"background": "color-mix(in srgb, var(--wp--preset--color--contrast) 85%, transparent)",
-						"text": "var(--wp--preset--color--base)"
-					}
-				},
 				"color": {
-					"background": "var(--wp--preset--color--contrast)",
+					"background": "var(--wp--preset--color--orange)",
 					"text": "var(--wp--preset--color--base)"
 				},
 				"spacing": {
 					"padding": {
-						"bottom": "1rem",
-						"left": "2.25rem",
-						"right": "2.25rem",
-						"top": "1rem"
+						"bottom": "0.8rem",
+						"left": "2rem",
+						"right": "2rem",
+						"top": "0.8rem"
 					}
 				},
 				"typography": {
