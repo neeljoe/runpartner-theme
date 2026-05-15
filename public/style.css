@@ -421,18 +421,6 @@ body {
 	margin-block-start: 0;
 }
 
-/* Event details card */
-
-.event-details-card {
-	border: 1px solid var(--wp--preset--color--accent-6);
-	background: color-mix(in srgb, var(--wp--preset--color--base) 95%, var(--wp--preset--color--contrast));
-	border-radius: 8px;
-}
-
-.event-meta-item {
-	margin: 0;
-}
-
 /* Event CTA card */
 
 .event-cta-card {
