@@ -443,6 +443,11 @@
 					"fontSize": "var(--wp--preset--font-size--medium)"
 				}
 			},
+			"core/post-template": {
+				"spacing": {
+					"blockGap": "var(--wp--preset--spacing--50)"
+				}
+			},
 			"core/post-terms": {
 				"css": "& a { white-space: nowrap; }",
 				"typography": {

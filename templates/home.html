@@ -1,0 +1,55 @@
+<!-- wp:group {"align":"full","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull"><!-- wp:cover {"customOverlayColor":"#04100a","minHeight":40,"contentPosition":"center center","align":"full","className":"post-hero is-light","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30"}}}} -->
+<div class="wp-block-cover alignfull post-hero is-light" style="padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30);min-height:40px"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim" style="background-color:#04100a"></span><div class="wp-block-cover__inner-container"><!-- wp:template-part {"slug":"rounded","theme":"runpartner-theme","area":"header"} /-->
+
+<!-- wp:spacer {"height":"20vh"} -->
+<div style="height:20vh" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:group {"style":{"spacing":{"padding":{"bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group" style="padding-bottom:var(--wp--preset--spacing--50)"><!-- wp:heading {"textAlign":"center","level":1,"className":"text-gradient"} -->
+<h1 class="wp-block-heading has-text-align-center text-gradient">Latest News</h1>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center","className":"has-accent-4-color","textColor":"accent-4"} -->
+<p class="has-text-align-center has-accent-4-color has-accent-4-color has-text-color">Stories, updates, and insights from the running community</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group --></div></div>
+<!-- /wp:cover --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"animate-on-scroll","layout":{"type":"constrained"}} -->
+<div class="wp-block-group animate-on-scroll"><!-- wp:query {"queryId":0,"query":{"perPage":10,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"layout":{"type":"constrained"}} -->
+<div class="wp-block-query"><!-- wp:post-template {"layout":{"type":"grid","columnCount":2}} -->
+<!-- wp:group {"className":"news-card","layout":{"type":"default"}} -->
+<div class="wp-block-group news-card"><!-- wp:post-featured-image {"isLink":true,"className":"image-zoom news-card-image"} /-->
+
+<!-- wp:group {"className":"news-card-body","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","right":"var:preset|spacing|30","bottom":"var:preset|spacing|40","left":"var:preset|spacing|30"}}},"layout":{"type":"default"}} -->
+<div class="wp-block-group news-card-body" style="padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--30)"><!-- wp:post-terms /-->
+
+<!-- wp:post-title {"isLink":true,"style":{"spacing":{"margin":{"top":"var:preset|spacing|20"}}},"fontSize":"large"} /-->
+
+<!-- wp:post-date {"metadata":{"bindings":{"datetime":{"source":"core/post-data","args":{"field":"date"}}}},"fontSize":"small"} /-->
+
+<!-- wp:post-excerpt {"moreText":"Read more →","style":{"elements":{"link":{"color":{"text":"var:preset|color|accent-5"}}}},"textColor":"accent-4","fontSize":"small"} /--></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
+
+<!-- wp:query-pagination {"paginationArrow":"arrow","layout":{"type":"flex","justifyContent":"center"}} -->
+<!-- wp:query-pagination-previous /-->
+
+<!-- wp:query-pagination-numbers /-->
+
+<!-- wp:query-pagination-next /-->
+<!-- /wp:query-pagination -->
+
+<!-- wp:query-no-results -->
+<!-- wp:paragraph {"placeholder":"Add text or blocks that will display when a query returns no results."} -->
+<p>No news posts found.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results --></div>
+<!-- /wp:query --></div>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","theme":"runpartner-theme","area":"footer"} /-->
