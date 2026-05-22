@@ -725,6 +725,11 @@
 			"title": "Header"
 		},
 		{
+			"area": "header",
+			"name": "rounded",
+			"title": "Rounded Header"
+		},
+		{
 			"area": "footer",
 			"name": "footer",
 			"title": "Footer"
