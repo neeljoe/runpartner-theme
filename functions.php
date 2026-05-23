@@ -61,6 +61,26 @@ function runpartner_featured_events_query(array $query, WP_Block $block): array 
     return $query;
 }
 
+// Ensures className from core/query block attributes renders as CSS class on frontend
+add_filter('render_block', 'runpartner_add_featured_query_class', 10, 2);
+function runpartner_add_featured_query_class(string $block_content, array $block): string {
+    if ($block['blockName'] !== 'core/query') {
+        return $block_content;
+    }
+    $class_name = $block['attrs']['className'] ?? '';
+    if (!str_contains($class_name, 'featured-front-page-query') && !str_contains($class_name, 'featured-events-query')) {
+        return $block_content;
+    }
+    $classes = esc_attr($class_name);
+    $block_content = preg_replace(
+        '/class="wp-block-query/',
+        'class="wp-block-query ' . $classes,
+        $block_content,
+        1
+    );
+    return $block_content;
+}
+
 // Enqueue theme stylesheet
 add_action('wp_enqueue_scripts', 'runpartner_enqueue_styles');
 function runpartner_enqueue_styles() {

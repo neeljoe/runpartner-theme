@@ -82,3 +82,17 @@ pre::-webkit-scrollbar-thumb {
 pre::-webkit-scrollbar-thumb:hover {
 	background: var(--wp--preset--color--accent-5);
 }
+
+/* Featured hero event readability against accent-7 background */
+
+.featured-front-page-query .runpartner-event-subtitle-text {
+	color: var(--wp--preset--color--contrast);
+	font-weight: 400;
+	font-style: normal;
+	font-size: var(--wp--preset--font-size--large);
+}
+
+.featured-front-page-query .runpartner-event-hero-meta-text {
+	color: var(--wp--preset--color--contrast);
+	font-size: var(--wp--preset--font-size--medium);
+}
