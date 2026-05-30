@@ -694,12 +694,15 @@
 			},
 			"link": {
 				":hover": {
-					"typography": {
-						"textDecoration": "none"
+					"color": {
+						"text": "var(--wp--preset--color--accent-1)"
 					}
 				},
 				"color": {
-					"text": "currentColor"
+					"text": "var(--wp--preset--color--orange)"
+				},
+				"typography": {
+					"textDecoration": "none"
 				}
 			}
 		},
