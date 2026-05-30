@@ -702,7 +702,7 @@
 					"text": "var(--wp--preset--color--orange)"
 				},
 				"typography": {
-					"textDecoration": "underline"
+					"textDecoration": "none"
 				}
 			}
 		},
