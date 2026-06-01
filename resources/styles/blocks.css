@@ -1,5 +1,31 @@
 /* Block-specific enhancements */
 
+/* Image credit overlay on cover blocks */
+
+.wp-block-cover__image-credit {
+	position: absolute;
+	bottom: 8px;
+	right: 12px;
+	font-size: 0.7rem;
+	color: rgba(255, 255, 255, 0.75);
+	background: rgba(0, 0, 0, 0.5);
+	padding: 2px 8px;
+	border-radius: 4px;
+	z-index: 1;
+	line-height: 1.5;
+	pointer-events: none;
+}
+
+/* Image credit below post featured image portrait (coach/athlete) */
+
+.wp-block-post-featured-image__credit {
+	font-size: 0.7rem;
+	color: var(--wp--preset--color--accent-4);
+	margin-top: 6px;
+	text-align: center;
+	line-height: 1.4;
+}
+
 /* Post hero cover overlay gradient */
 
 .post-hero.wp-block-cover::after {

@@ -81,6 +81,66 @@ function runpartner_add_featured_query_class(string $block_content, array $block
     return $block_content;
 }
 
+// Injects image credit from attachment caption into cover blocks with useFeaturedImage
+// Skips coach/athlete post types — credit handled by portrait filter instead
+add_filter('render_block_core/cover', 'runpartner_cover_image_credit', 10, 2);
+function runpartner_cover_image_credit(string $block_content, array $block): string {
+	if (empty($block['attrs']['useFeaturedImage'])) {
+		return $block_content;
+	}
+
+	$post_id = $block['context']['postId'] ?? get_the_ID();
+	if (!$post_id || !has_post_thumbnail($post_id)) {
+		return $block_content;
+	}
+
+	if (in_array(get_post_type($post_id), ['coach', 'athlete'], true)) {
+		return $block_content;
+	}
+
+	$caption = wp_get_attachment_caption(get_post_thumbnail_id($post_id));
+	if (empty($caption)) {
+		return $block_content;
+	}
+
+	$credit = sprintf(
+		'<div class="wp-block-cover__image-credit">%s</div>',
+		esc_html($caption)
+	);
+
+	$pos = strrpos($block_content, '</div>');
+	if ($pos !== false) {
+		$block_content = substr_replace($block_content, $credit . "\n", $pos, 0);
+	}
+
+	return $block_content;
+}
+
+// Injects image credit below the portrait on coach and athlete single pages
+add_filter('render_block_core/post-featured-image', 'runpartner_portrait_image_credit', 10, 2);
+function runpartner_portrait_image_credit(string $block_content, array $block): string {
+	$post_id = $block['context']['postId'] ?? get_the_ID();
+	if (!$post_id || !has_post_thumbnail($post_id)) {
+		return $block_content;
+	}
+
+	if (!in_array(get_post_type($post_id), ['coach', 'athlete'], true)) {
+		return $block_content;
+	}
+
+	$caption = wp_get_attachment_caption(get_post_thumbnail_id($post_id));
+	if (empty($caption)) {
+		return $block_content;
+	}
+
+	$credit = sprintf(
+		'<div class="wp-block-post-featured-image__credit">%s</div>',
+		esc_html($caption)
+	);
+
+	return $block_content . "\n" . $credit;
+}
+
 // Enqueue theme stylesheet
 add_action('wp_enqueue_scripts', 'runpartner_enqueue_styles');
 function runpartner_enqueue_styles() {
