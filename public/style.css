@@ -709,10 +709,6 @@ body {
 
 .wp-block-cover__inner-container:has(.wp-block-navigation__responsive-container.is-menu-open) > .alignwide:first-child {
 	background: transparent !important;
-	backdrop-filter: none !important;
-	-webkit-backdrop-filter: none !important;
-	border-color: transparent !important;
-	box-shadow: none !important;
 }
 
 /* ========================================
@@ -750,25 +746,6 @@ body {
     border-radius: 12px;
     border: 1px solid color-mix(in srgb, var(--wp--preset--color--contrast) 10%, transparent);
 }
-}
-
-/* ========================================
-   Rounded Nav — Glass Morphism
-   Applied globally to the rounded header
-   when rendered inside a post-hero cover
-   ======================================== */
-
-.post-hero .alignwide.has-accent-7-background-color {
-	background: rgba(0, 0, 0, 0.25);
-	backdrop-filter: blur(16px);
-	-webkit-backdrop-filter: blur(16px);
-	border: 1px solid rgba(255, 255, 255, 0.1);
-	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-	color: var(--wp--preset--color--contrast);
-}
-
-.post-hero .alignwide.has-accent-7-background-color a {
-	color: var(--wp--preset--color--contrast);
 }
 
 /* Reduced motion support */
