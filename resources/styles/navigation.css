@@ -1,0 +1,109 @@
+/* Navigation — link hover effects */
+
+.wp-block-navigation .wp-block-navigation-item__content {
+	transition: color var(--rp-transition-normal);
+}
+
+.wp-block-navigation .wp-block-navigation-item__content:hover {
+	color: var(--wp--preset--color--lime-green);
+}
+
+/* Site title orange glow on hover */
+
+.wp-block-site-title a {
+	transition: color var(--rp-transition-normal), text-shadow var(--rp-transition-normal);
+}
+
+.wp-block-site-title a:hover {
+	color: var(--wp--preset--color--orange);
+	text-shadow: 0 0 20px color-mix(in srgb, var(--wp--preset--color--orange) 50%, transparent);
+}
+
+/* Desktop pill links (≥600px — inline nav visible) */
+
+@media (min-width: 600px) {
+
+	.wp-block-navigation .wp-block-navigation__container {
+		gap: 4px;
+	}
+
+	.wp-block-navigation .wp-block-navigation-item__content {
+		padding: 6px 18px;
+		border-radius: 999px;
+		transition: background var(--rp-transition-normal);
+	}
+
+	.wp-block-navigation .wp-block-navigation-item__content:hover {
+		background: color-mix(in srgb, currentColor 12%, transparent);
+	}
+}
+
+/* Mobile — hamburger and close buttons */
+
+.wp-block-navigation__responsive-container-open {
+	margin-left: auto;
+	padding: 8px;
+	border-radius: 6px;
+	border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
+	transition: background var(--rp-transition-normal);
+}
+
+.wp-block-navigation__responsive-container-open:hover,
+.wp-block-navigation__responsive-container-open:focus-visible {
+	background: color-mix(in srgb, currentColor 12%, transparent);
+}
+
+.wp-block-navigation__responsive-container-open svg {
+	display: block;
+	width: 24px;
+	height: 24px;
+}
+
+.wp-block-navigation__responsive-container-close {
+	padding: 8px;
+	border-radius: 6px;
+	border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
+	transition: background var(--rp-transition-normal);
+}
+
+.wp-block-navigation__responsive-container-close:hover,
+.wp-block-navigation__responsive-container-close:focus-visible {
+	background: color-mix(in srgb, currentColor 12%, transparent);
+}
+
+.wp-block-navigation__responsive-container-close svg {
+	display: block;
+	width: 24px;
+	height: 24px;
+}
+
+/* Mobile overlay (<600px) */
+
+@media (max-width: 599px) {
+
+	.wp-block-navigation__responsive-container {
+		top: 12px;
+		right: 12px;
+		bottom: 12px;
+		left: 12px;
+		width: auto;
+		height: auto;
+		border-radius: 16px;
+		background: color-mix(in srgb, var(--wp--preset--color--base) 88%, transparent) !important;
+		backdrop-filter: blur(12px);
+	}
+
+	.wp-block-navigation__responsive-container .wp-block-navigation__container {
+		gap: 4px;
+	}
+
+	.wp-block-navigation__responsive-container .wp-block-navigation-item__content {
+		padding: 12px 20px !important;
+		border-radius: 999px;
+		transition: background var(--rp-transition-normal);
+	}
+
+	.wp-block-navigation__responsive-container .wp-block-navigation-item__content:hover {
+		background: color-mix(in srgb, currentColor 12%, transparent);
+	}
+}
