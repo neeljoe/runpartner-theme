@@ -18,6 +18,6 @@
 <div class="wp-block-group"><!-- wp:site-title {"style":{"elements":{"link":{"color":{"text":"var:preset|color|background"}}}},"textColor":"accent-5","fontSize":"medium"} /--></div>
 <!-- /wp:group -->
 
-<!-- wp:navigation {"textColor":"accent-5","overlayBackgroundColor":"accent-7","overlayTextColor":"accent-5","layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"right"}} /--></div>
+<!-- wp:navigation {"textColor":"accent-5","overlayBackgroundColor":"base","overlayTextColor":"accent-5","layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"center"}} /--></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
